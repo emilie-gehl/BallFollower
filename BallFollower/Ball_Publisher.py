@@ -64,8 +64,8 @@ class BallPublisher(Node):
 
                 # Publier les coordonnées
                 msg = BallCoordinates()
-                msg.x = relative_x
-                msg.y = relative_y
+                msg.x = float(relative_x)
+                msg.y = float(relative_y)
                 msg.distance = distance_m
                 self.publisher_.publish(msg)  # Publier le message
                 self.get_logger().info(f'Coordonnées publiées : x={msg.x}, y={msg.y}, distance={msg.distance:.2f} m')
@@ -76,8 +76,8 @@ class BallPublisher(Node):
 
         else:   # Aucune balle détectée, publier un message indiquant cela
             msg = BallCoordinates()
-            msg.x = 2  # Indiquer qu'aucune balle n'est détectée
-            msg.y = 2  # Indiquer qu'aucune balle n'est détectée
+            msg.x = 2.0  # Indiquer qu'aucune balle n'est détectée
+            msg.y = 2.0  # Indiquer qu'aucune balle n'est détectée
             msg.distance = 0.0  # Optionnel, distance fictive
             self.publisher_.publish(msg)
             self.get_logger().info('Aucune balle détectée. Coordonnées publiées : x=2, y=2')
