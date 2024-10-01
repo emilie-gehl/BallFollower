@@ -39,8 +39,8 @@ class BallFollower(Node):
     def move_towards_ball(self):
         # Calculer et commander les moteurs du TurtleBot en fonction des dernières coordonnées reçues
         msg = Twist()
-        msg.linear.x = min(self.distance * 0.1, 0.22)  # Limiter la vitesse linéaire
-        msg.angular.z = -self.x * 0.01  # Ajuster la direction selon la position de la balle
+        msg.linear.x = min(self.distance * 0.22, 0.22)  # Limiter la vitesse linéaire
+        msg.angular.z = -self.x * 2.84  # Ajuster la direction selon la position de la balle
         self.publisher_.publish(msg)
 
 def main(args=None):

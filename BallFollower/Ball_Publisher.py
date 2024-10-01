@@ -13,9 +13,9 @@ class BallPublisher(Node):
 
     def publish_coordinates(self):
         msg = BallCoordinates()
-        msg.x = 0.30  # Coordonnée X fictive
-        msg.y = -0.05  # Coordonnée Y fictive
-        msg.distance = 1.2  # Distance fictive
+        msg.x = 0.60  # Coordonnée X fictive
+        msg.y = -0.00  # Coordonnée Y fictive
+        msg.distance = 0.8  # Distance fictive
         self.publisher_.publish(msg)  # Publier le message
         self.get_logger().info(f'Coordonnées publiées : x={msg.x}, y={msg.y}, distance={msg.distance}')
 
