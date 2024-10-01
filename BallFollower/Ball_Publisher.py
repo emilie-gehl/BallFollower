@@ -27,7 +27,7 @@ class BallPublisher(Node):
         self.upper_orange = np.array([25, 255, 255])
 
 
-        self.timer_period = 0.05  # Période de publication (toutes les 0.5 secondes)
+        self.timer_period = 0.05  # Période de publication (toutes les 0.05 secondes)
         self.timer = self.create_timer(self.timer_period, self.detect_and_publish)
 
     def detect_and_publish(self):
@@ -73,6 +73,15 @@ class BallPublisher(Node):
                 text = f"Coord: ({relative_x:.2f}, {relative_y:.2f}) & Dist: {distance_m:.2f} m"
                 cv.putText(frame, text, (chosen[0] + 10, chosen[1] - 10), 
                            cv.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+
+        else:   # Aucune balle détectée, publier un message indiquant cela
+            msg = BallCoordinates()
+            msg.x = 2  # Indiquer qu'aucune balle n'est détectée
+            msg.y = 2  # Indiquer qu'aucune balle n'est détectée
+            msg.distance = 0.0  # Optionnel, distance fictive
+            self.publisher_.publish(msg)
+            self.get_logger().info('Aucune balle détectée. Coordonnées publiées : x=2, y=2')
+
 
         cv.imshow('Circles', frame)
 
