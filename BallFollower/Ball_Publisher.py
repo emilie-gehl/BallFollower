@@ -26,8 +26,8 @@ class BallPublisher(Node):
         self.lower_orange = np.array([0, 50, 150])
         self.upper_orange = np.array([25, 255, 255])
 
-<<<<<<< HEAD
-        self.timer_period = 0.5  # Période de publication (toutes les 0.5 secondes)
+
+        self.timer_period = 0.05  # Période de publication (toutes les 0.5 secondes)
         self.timer = self.create_timer(self.timer_period, self.detect_and_publish)
 
     def detect_and_publish(self):
@@ -79,7 +79,7 @@ class BallPublisher(Node):
         if cv.waitKey(1) & 0xFF == ord('q'):
             self.cap.release()
             cv.destroyAllWindows()
-=======
+
     def publish_coordinates(self):
         msg = BallCoordinates()
         msg.x = 0.60  # Coordonnée X fictive
@@ -87,7 +87,7 @@ class BallPublisher(Node):
         msg.distance = 0.8  # Distance fictive
         self.publisher_.publish(msg)  # Publier le message
         self.get_logger().info(f'Coordonnées publiées : x={msg.x}, y={msg.y}, distance={msg.distance}')
->>>>>>> 802d4a756dd2cc19b0bb716eb523eb81d0eeaae7
+
 
 def main(args=None):
     rclpy.init(args=args)
