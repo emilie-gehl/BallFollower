@@ -83,7 +83,7 @@ class BallPublisher(Node):
             self.get_logger().info('Aucune balle détectée. Coordonnées publiées : x=2, y=2')
 
 
-        cv.imshow('Circles', frame)
+        #cv.imshow('Circles', frame)
 
         if cv.waitKey(1) & 0xFF == ord('q'):
             self.cap.release()
