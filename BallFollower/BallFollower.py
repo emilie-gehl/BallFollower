@@ -24,7 +24,7 @@ class BallFollower(Node):
         self.distance = 0.0
 
         # Créer un timer pour mettre à jour la commande de mouvement régulièrement
-        self.timer = self.create_timer(0.1, self.move_towards_ball)
+        self.timer = self.create_timer(0.20, self.move_towards_ball)
         
 
     def listener_callback(self, msg):

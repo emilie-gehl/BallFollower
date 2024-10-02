@@ -27,7 +27,7 @@ class BallPublisher(Node):
         self.upper_orange = np.array([25, 255, 255])
 
 
-        self.timer_period = 0.05  # Période de publication (toutes les 0.05 secondes)
+        self.timer_period = 0.14  # Période de publication (toutes les 0.05 secondes)
         self.timer = self.create_timer(self.timer_period, self.detect_and_publish)
 
     def detect_and_publish(self):
