@@ -1,6 +1,6 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from launch import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
@@ -20,7 +20,7 @@ def generate_launch_description():
        ),
        # Inclusion du fichier robot.launch.py
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource('/turtlebot3/turtlebot3_bringup/launch/robot.launch.py'),
+            PythonLaunchDescriptionSource('~turtlebot3_ws/src/turtlebot3/turtlebot3_bringup/launch/robot.launch.py'),
             # Vous pouvez passer des arguments ici si nécessaire
         )
    ])
