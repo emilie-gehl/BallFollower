@@ -23,6 +23,8 @@ class BallPublisher(Node):
             self.get_logger().error("Erreur, impossible d'ouvrir la caméra.")
             return
         
+        frame = cv.resize(frame, (320, 240))
+
         # Paramètres de la balle
         self.real_diameter_mm = 40  # diamètre de la balle en mm
         self.k = 1400  # Coefficient de calibrage
