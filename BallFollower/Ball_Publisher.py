@@ -1,11 +1,13 @@
+import os
 import rclpy
 from rclpy.node import Node
 from custom_interfaces.msg import BallCoordinates  # Importer le message personnalisé
+os.environ["OPENCV_OPENCL_RUNTIME"] = ""
 import cv2 as cv
 import numpy as np
-import os
 
-os.environ['DISPLAY'] = ':0'
+
+os.environ['DISPLAY'] = 'localhost:0'
 
 class BallPublisher(Node):
     def __init__(self):
