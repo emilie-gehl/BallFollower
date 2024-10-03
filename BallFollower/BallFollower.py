@@ -26,16 +26,12 @@ class BallFollower(Node):
 
         # Créer un timer pour mettre à jour la commande de mouvement régulièrement
         self.timer = self.create_timer(0.20, self.move_towards_ball)
-        
 
     def listener_callback(self, msg):
         # Mettre à jour les données reçues
         self.x = msg.x
         self.y = msg.y
         self.distance = msg.distance
-        
-        # Affiche ou traite les coordonnées reçues
-        self.get_logger().info(f'Balle détectée à x={self.x}, y={self.y}, distance={self.distance}')
     
     def move_towards_ball(self):
         # Calculer et commander les moteurs du TurtleBot en fonction des dernières coordonnées reçues
@@ -49,14 +45,16 @@ class BallFollower(Node):
             self.get_logger().info('Aucune balle détectée, rotation en cours...')
         elif self.distance < 0.3 and self.x <0.75 and self.x>-0.75:
             #Avancer tout droit quand la balle est proche pour shooter la balle
-            msg.angular.z = 0.0  
-            msg.linear.x = 0.11  
+            msg.angular.z = 0.0
+            msg.linear.x = 0.22  
             self.get_logger().info('Tentative de buuuuuuuut!!!')
             time.sleep(2)
         else:
             # Calculer et commander les moteurs du TurtleBot en fonction des coordonnées reçues
             msg.linear.x = min(self.distance * 0.44, 0.22)  # Limiter la vitesse linéaire
             msg.angular.z = -self.x * 0.5  # Ajuster la direction selon la position de la balle
+            # Affiche ou traite les coordonnées reçues
+            self.get_logger().info(f'Balle détectée à x={self.x}, y={self.y}, distance={self.distance}')
             
         self.publisher_.publish(msg)
 
