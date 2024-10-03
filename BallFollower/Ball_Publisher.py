@@ -3,6 +3,9 @@ from rclpy.node import Node
 from custom_interfaces.msg import BallCoordinates  # Importer le message personnalisé
 import cv2 as cv
 import numpy as np
+import os
+
+os.environ['DISPLAY'] = ':0'
 
 class BallPublisher(Node):
     def __init__(self):
@@ -83,7 +86,7 @@ class BallPublisher(Node):
             self.get_logger().info('Aucune balle détectée. Coordonnées publiées : x=2, y=2')
 
 
-        #cv.imshow('Circles', frame)
+        cv.imshow('Circles', frame)
 
         if cv.waitKey(1) & 0xFF == ord('q'):
             self.cap.release()
