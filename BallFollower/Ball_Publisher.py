@@ -23,7 +23,7 @@ class BallPublisher(Node):
             self.get_logger().error("Erreur, impossible d'ouvrir la caméra.")
             return
         
-        frame = cv.resize(frame, (320, 240))
+        #frame = cv.resize(frame, (320, 240))
 
         # Paramètres de la balle
         self.real_diameter_mm = 40  # diamètre de la balle en mm
@@ -90,7 +90,7 @@ class BallPublisher(Node):
             self.get_logger().info('Aucune balle détectée. Coordonnées publiées : x=2, y=2')
 
 
-        cv.imshow('Circles', frame)
+#        cv.imshow('Circles', frame)
 
         if cv.waitKey(1) & 0xFF == ord('q'):
             self.cap.release()
