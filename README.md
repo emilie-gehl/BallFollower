@@ -70,4 +70,14 @@ Terminal 3
 ros2 run BallFollower BallFollower
 ```
 ### Différente couleur de balle
-Ce projet a été créé pour détecter une balle de couleur orange pâle. Il se peut que votre balle ne soit pas de la même couleur. Vous pouvez modifier la plage du masque de couleur dans le fichier Ball_Publisher :
+Ce projet a été créé pour détecter une balle de couleur orange pâle. Il se peut que votre balle ne soit pas de la même couleur. Vous pouvez modifier la plage du masque de couleur dans le fichier Ball_Publisher.py (ligne 32) :
+```
+        # Plages de couleur pour l'orange
+        self.lower_orange = np.array([0, 50, 150])
+        self.upper_orange = np.array([25, 255, 255])
+```
+### ID de la caméra
+Si la caméra n'est pas détectée, il est possible de changer l'ID de la caméra dans le fichier Ball_Publisher.py : 
+```
+ros2 run BallFollower BallFollower
+```
