@@ -10,9 +10,9 @@ Lorsque le robot ne détecte aucune balle dans son champ de vision, il tourne su
 
 Dès qu'une balle est détectée, il se dirige vers elle avec une vitesse proportionnelle à son éloignement. Sa vitesse linéaire est cependant plafonnée à 0.22 m/s pour éviter de ne plus détecter la balle à cause de la trainée engendrée par son mouvement. Plus le robot s'approche, plus il ralentit, jusqu'à atteindre la vitesse de 0.1 m/s.
 
-### Conseils :
-> [!Conseils]
+> [!TIP]
 > Veillez à fixer la caméra au plus proche du sol pour éviter tout angle mort.
+> 
 > Veillez à avoir un éclairage optimal pour favoriser la détection de la balle.
 
 ## Prérequis
@@ -38,3 +38,36 @@ source install/setup.bash
 ```
   
 ## Utilisation
+### Connexion avec la tortue (TurtleBot)
+Une fois le robot allumé, se connecter à son wifi.
+Ouvrir ensuite un terminal de commande et se connecter à la tortue via ssh:
+```
+SSH -X turtle@ip.de.la.turtle
+```
+L'ajout du paramètre '-X' permet d'ouvrir une fenêtre de retour caméra sur l'écran du pc connecté à la tortue.
+
+### Lancement du programme
+Lancer le fichier launch 'Ball_Launch.py' après avoir vérifier d'être dans le terminal connecté à la tortue :
+```
+ros2 launch BallFollower Ball_Launch.py
+```
+
+Vous êtes prêt à suivre une balle.
+
+## Débugage
+### Problème avec le fichier launch
+Si le code ne se lance pas, essayer d'ouvrir un à un les fichiers pour identifier le problème. Il faut pour cela 3 terminaux différents, un pour chaque noeud et tous doivent être connectés en ssh à la tortue.
+Terminal 1
+```
+ros2 launch turtlebot3_bringup robot.launch.py
+```
+Terminal 2
+```
+ros2 run BallFollower Ball_Publisher
+```
+Terminal 3
+```
+ros2 run BallFollower BallFollower
+```
+### Différente couleur de balle
+Ce projet a été créé pour détecter une balle de couleur orange pâle. Il se peut que votre balle ne soit pas de la même couleur. Vous pouvez modifier la plage du masque de couleur dans le fichier Ball_Publisher :
