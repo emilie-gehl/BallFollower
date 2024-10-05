@@ -77,7 +77,11 @@ Ce projet a été créé pour détecter une balle de couleur orange pâle. Il se
         self.upper_orange = np.array([25, 255, 255])
 ```
 ### ID de la caméra
-Si la caméra n'est pas détectée, il est possible de changer l'ID de la caméra dans le fichier Ball_Publisher.py : 
+Si la caméra n'est pas détectée, il est possible de changer l'ID de la caméra dans le fichier Ball_Publisher.py (ligne 20) : 
 ```
-ros2 run BallFollower BallFollower
+        self.camera_id = 0
 ```
+
+## Sources
+Code de traitement d’image inspiré de :  [YouTube, CodeSavant](https://www.youtube.com/watch?v=RaCwLrKuS1w)       (vidéo YouTube de CodeSavant du 26/12/2021)
+Merci à la terre entière (ChatGPT)
