@@ -83,5 +83,5 @@ Si la caméra n'est pas détectée, il est possible de changer l'ID de la camér
 ```
 
 ## Sources
-Code de traitement d’image inspiré de :  [YouTube, CodeSavant](https://www.youtube.com/watch?v=RaCwLrKuS1w)       (vidéo YouTube de CodeSavant du 26/12/2021)
-Merci à la terre entière (ChatGPT)
+- Code de traitement d’image inspiré de :  [YouTube, CodeSavant](https://www.youtube.com/watch?v=RaCwLrKuS1w)       (vidéo YouTube de CodeSavant du 26/12/2021)
+- Merci à la terre entière (ChatGPT)
